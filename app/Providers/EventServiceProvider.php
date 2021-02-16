@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Event;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+
+class EventServiceProvider extends ServiceProvider
+{
+    /**
+     * The event listener mappings for the application.
+     *
+     * @var array
+     */
+    protected $listen = [
+        'cart.added' => [
+            'App\Listeners\CartUpdatedListener',
+        ],
+        'cart.updated' => [
+            'App\Listeners\CartUpdatedListener',
+        ],
+        'cart.removed' => [
+            'App\Listeners\CartUpdatedListener',
+        ],
+    'App\events\UserCreatedEvent'=> [
+            'App\Listeners\SetDefaultRoleListener',
+        ],
+    ];
+
+    /**
+     * Register any events for your application.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        parent::boot();
+
+        //
+    }
+}
